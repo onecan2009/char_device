@@ -5,7 +5,7 @@ ifneq ($(KERNELRELEASE),)
 
 MODULE_NAME := char_dev
 
-OBJDRIVER := char_net.o 
+OBJDRIVER := char_net_platform.o  char_dev_create.o
 
 
 
@@ -24,8 +24,12 @@ all: clean
  #“M=”选项的作用是，当用户需要以某个内核为基础编译一个外部模块的话，需要在make modules 命令中加入“M=dir 
  #modueles目标指向obj-m变量中设定的模块
 	$(MAKE) -C $(KERNELDIR) M=$(DRIVERDIR) modules
+	$(MAKE) copy
 
-	
+
+copy:
+	echo "copy ko to remote Lark.."
+	scp char_dev.ko root@192.168.1.9:/home/Lark/Desktop
 clean:
 	rm -rf *.o *.mod.c .*.cmd *.order *.symvers *.ko .tmp_versions
 	
