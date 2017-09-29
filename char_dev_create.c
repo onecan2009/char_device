@@ -23,6 +23,8 @@ static int major;
 static struct cdev char_net_cdev;
 static struct class *cls;
 
+extern struct char_net_priv net_priv; 
+
 static int char_net_open(struct inode *inode, struct file *filp)
 {
     debug_print("%s()\n",__func__);

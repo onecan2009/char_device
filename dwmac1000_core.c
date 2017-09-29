@@ -31,7 +31,7 @@
 #include <linux/ethtool.h>
 #include <asm/io.h>
 #include "dwmac1000.h"
-
+#include "debug.h"
 static void dwmac1000_core_init(void __iomem *ioaddr)
 {
 	u32 value = readl(ioaddr + GMAC_CONTROL);
@@ -387,6 +387,7 @@ static const struct stmmac_ops dwmac1000_ops = {
 
 struct mac_device_info *dwmac1000_setup(void __iomem *ioaddr)
 {
+    debug_print("in %s()\n",__func__);
 	struct mac_device_info *mac;
 	u32 hwid = readl(ioaddr + GMAC_VERSION);
 

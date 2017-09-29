@@ -5,7 +5,7 @@ ifneq ($(KERNELRELEASE),)
 
 MODULE_NAME := char_dev
 
-OBJDRIVER := char_net_platform.o  char_dev_create.o
+OBJDRIVER := char_net_platform.o  char_dev_create.o dwmac1000_core.o dwmac1000_dma.o gmac_init.o dwmac_lib.o norm_desc.o gmac_ctrl.o net_ctrl.o phy_ctrl.o
 
 
 
